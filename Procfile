@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath callector callector_project.wsgi --log-file -
