@@ -79,7 +79,9 @@ class NumberGameInitView(APIView):
             print('Error when trying to continue state')
             ( State, InitAct, DontUnderstandAct ) = ( NewState, NewInitAct, NewDontUnderstandAct )
             State["userId"] = userId
-        
+         
+        print("Current state:" State.__str__())
+		
         return ( State, InitAct, DontUnderstandAct )
         
 class NumberGameInitViewOLD(APIView):
@@ -191,6 +193,8 @@ class NumberGameMessageView(APIView):
             ( State, InitAct, DontUnderstandAct ) = NumberGameInitView.init(userId)
             StateDict = State
         
+        print("Current state:" StateDict.__str__())
+		
 		# In both cases, we let robust matching and the rest of the backend code
         # figure out what to do
         action = call.string_and_state_to_action(String, StateDict)
