@@ -121,7 +121,7 @@ class WhichAnimalMessageView(APIView):
             WhichAnimalMessageView.saveScore(action['presented_score'][0])
         
             # Store only the best score
-            if highScore.__str__() < action['presented_score'][0]:
+            if highScore < action['presented_score'][0]:
                 WhichAnimalMessageView.saveUserHighScore(userId, action['presented_score'][0])
             
             scoreList = WhichAnimalMessageView.getAllUserScores()
